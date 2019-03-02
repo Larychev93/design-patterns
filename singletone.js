@@ -8,18 +8,23 @@
 
 class Universe {
   constructor() {
-    if (!Universe.instance) {
+    if (Universe.instance) {
+      throw new Error('Please use getUniverseInstance')
+    } else {
       this.startTime = 0;
       this.bang = 'Big';
 
       Universe.instance = this
     }
+  }
+
+  static getUniverseInstance () {
     return Universe.instance
   }
 }
 
 let first = new Universe();
-let second = new Universe();
+let second = first.getUniverseInstance();
 
 console.log(first === second); //SingleTone
 

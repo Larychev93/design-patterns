@@ -1,6 +1,12 @@
+/**
+ @Описание Шаблон Фабричный метод. порождающий шаблон проектирования,
+ предоставляющий подклассам (дочерним классам)
+ интерфейс для создания экземпляров некоторого класса.
+ **/
+
 class VehicleFactory {
-   createVehicle (type, options){
-    switch(type) {
+  createVehicle(type, options) {
+    switch (type) {
       case 'car':
         return new Car(options.wheels, options.passengers, options.airbags);
       case 'bike':
@@ -10,16 +16,17 @@ class VehicleFactory {
 }
 
 class Vehicle {
-  constructor (wheels, airbags, passengers) {
+  constructor(wheels, airbags, passengers) {
     this.wheels = wheels;
     this.airbags = airbags;
     this.passengers = passengers
   }
-  get isMoreFun () {
+
+  get isMoreFun() {
     return this.wheels === 2
   }
 
-  get isSaveEnough () {
+  get isSaveEnough() {
     return this.airbags
   }
 }
@@ -31,7 +38,7 @@ class Car extends Vehicle {
     this.bagage = 0
   }
 
-  mountBagage (weight) {
+  mountBagage(weight) {
     this.bagage = weight
   }
 }
@@ -41,8 +48,9 @@ class Bike extends Vehicle {
     super(wheels, airbags, passengers);
   }
 
-  makeWheelie () {
-    console.log('Hell yeah')
+  makeWheelie() {
+    this.wheels--;
+    console.log(this.wheels)
   }
 }
 
