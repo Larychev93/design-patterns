@@ -5,7 +5,7 @@
  **/
 
 class VehicleFactory {
-  createVehicle(type, options) {
+  static createVehicle(type, options) {
     switch (type) {
       case 'car':
         return new Car(options.wheels, options.passengers, options.airbags);
