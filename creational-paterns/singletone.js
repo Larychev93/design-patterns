@@ -21,10 +21,6 @@ class Database {
     return this._data;
   }
 
-  setData(data) {
-    this._data = data;
-  }
-
   static getDatabaseInstance () {
     return Database.instance
   }

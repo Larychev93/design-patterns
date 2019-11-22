@@ -1,13 +1,10 @@
 
-
-//Concrete Factory
 class Database {
   getDescription() {
     console.log('I am a DB')
   }
 }
 
-//Concrete Factory
 class ClientCode {
   getDescription() {
     console.log('I am a Client code in browser')
@@ -25,8 +22,6 @@ class FrontendDev {
   }
 }
 
-
-// Wooden factory to return carpenter and wooden door
 class BackendFactory {
   getIssue() {
     return new Database()
