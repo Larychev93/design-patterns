@@ -6,30 +6,32 @@
  * @Цели Гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа.
  */
 
-class Universe {
-  constructor() {
-    if (Universe.instance) {
-      throw new Error('Please use getUniverseInstance')
+class Database {
+  constructor(data) {
+    if (Database.instance) {
+      throw new Error('Please use getDatabaseInstance')
     } else {
-      this.startTime = 0;
-      this.bang = 'Big';
+      this._data = data;
 
-      Universe.instance = this
+      Database.instance = this
     }
   }
 
-  static getUniverseInstance () {
-    return Universe.instance
+  getData() {
+    return this._data;
+  }
+
+  setData(data) {
+    this._data = data;
+  }
+
+  static getDatabaseInstance () {
+    return Database.instance
   }
 }
 
-let first = new Universe();
-let second = first.getUniverseInstance();
+const mongo = new Database('mongo');
+console.log(mongo.getData()); // mongo
 
-console.log(first === second); //SingleTone
-
-let firstObject = { startTime: 0 };
-
-let secondObject = { startTime: 0 };
-
-console.log(firstObject === secondObject); //noSingletone
+const mysql = new Database('mysql');
+console.log(mysql.getData()); // error
