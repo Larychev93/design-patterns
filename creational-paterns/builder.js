@@ -4,7 +4,7 @@
  **/
 
 class Project {
-  constructor (builder) {
+  constructor(builder) {
     this.frontendGuys = builder.frontendGuys;
     this.backendGuys = builder.backendGuys;
     this.QAGuys = builder.QAGuys;
@@ -30,13 +30,13 @@ class ProjectBuilder {
     return this
   }
 
-  AddQAGuys(developers) {
+  addQADevs(developers) {
     this.QAGuys = developers;
 
     return this
   }
 
-  AddDesignGuys(developers) {
+  addDesignDevs(developers) {
     this.designGuys = developers;
 
     return this
@@ -48,12 +48,19 @@ class ProjectBuilder {
   }
 }
 
-const awesomeProject = (new ProjectBuilder('Awesome Project'))
-  .addBackenddDevs(['test'])
-  .addFrontendDevs(['test'])
-  .AddQAGuys(['test'])
-  .AddDesignGuys(['test'])
-  .build();
+const fullTeamProject = (new ProjectBuilder('Full team Project'))
+.addBackenddDevs(['backend #1'])
+.addFrontendDevs(['frontend #1'])
+.addQADevs(['QA #1'])
+.addDesignDevs(['Design #1'])
+.build();
 
-console.log(awesomeProject);
+const designOnlyProject = (new ProjectBuilder('Design only project'))
+.addDesignDevs(['Designer #1', 'Designer #2'])
+.addQADevs(['QA #1'])
+.build();
+
+
+console.log(`Full team project: ${JSON.stringify(fullTeamProject)}`);
+console.log(`Design only project: ${JSON.stringify(designOnlyProject)}`);
 

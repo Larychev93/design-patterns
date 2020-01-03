@@ -48,4 +48,4 @@ stormTrooper.blaster = new StormTrooperFactory("blaster", stormTrooperProps);
 //gets a head from the head factory
 stormTrooper.clone  = new StormTrooperFactory("clone", stormTrooperProps);
 
-console.log(stormTrooper)
+console.log(stormTrooper);

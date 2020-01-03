@@ -1,3 +1,7 @@
+/**
+ * @Описание Абстрактная фабрика
+ * @Цели предоставляет простой интерфейс для создания объектов, которые принадлежат к тому или инному семейству
+ **/
 
 class Database {
   getDescription() {
@@ -44,8 +48,8 @@ class FrontendFactory {
 
 let clientSideCodeFactory = new FrontendFactory();
 
-let issue = clientSideCodeFactory.getIssue()
-let expert = clientSideCodeFactory.callDev()
+let issue = clientSideCodeFactory.getIssue();
+let expert = clientSideCodeFactory.callDev();
 
 issue.getDescription();
 expert.getDescription();
